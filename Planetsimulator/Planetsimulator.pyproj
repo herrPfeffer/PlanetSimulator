@@ -21,6 +21,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AnimatedScatter.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Planet.py">
       <SubType>Code</SubType>
     </Compile>

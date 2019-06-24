@@ -1,8 +1,8 @@
 class Planet(object):
     """Represents a planet"""
     
-    #basic constructor to initialize a new planet with its attributes
     def __init__(self, description:str, xPosition:float, yPosition:float, speed:float, mass:float):
+        """basic constructor to initialize a new planet with its attributes"""
         self.description = description
         self.xPosition = xPosition
         self.yPosition = yPosition
