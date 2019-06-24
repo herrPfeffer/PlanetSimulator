@@ -9,7 +9,8 @@ class PlanetCreator(object):
     #holds all planets in a list
     planets = [] 
 
-    #Creates a planet and appends it to the planet list
+    #Creates a planet and append it to the planet list
+    #TODO: interferences with other planets should be handled here
     def CreatePlanet(self, description: str, xPosition:int, yPosition:int, speed: float, mass: float) -> Planet:
         newPlanet = Planet(description, xPosition, yPosition, speed, mass)
         self.planets.append(newPlanet)
