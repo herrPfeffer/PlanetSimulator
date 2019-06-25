@@ -10,7 +10,6 @@ class PlanetCreator(object):
     #holds all planets in a list
     planets = [] 
 
-    #TODO: interferences with other planets should be handled here
     def CreatePlanet(self, description: str, xPosition:float, yPosition:float, speed: float, mass: float) -> Planet:
         """Creates a planet and append it to the planet list"""
         if self.ValidatePosition(xPosition, yPosition) == False:
@@ -27,18 +26,22 @@ class PlanetCreator(object):
         return True
 
     def getXPositions(self) -> list:
+        """Get all xPositions of planets in a list"""
         returnList = []
         for planet in self.planets:
+            planet.xPosition = 0.4
             returnList.append(planet.xPosition)
         return returnList
 
     def getYPositions(self) -> list:
+        """Get all YPositions of planets in a list"""
         returnList = []
         for planet in self.planets:
             returnList.append(planet.yPosition)
         return returnList
 
     def getDescriptions(self) -> list:
+        """Get all descriptions of planets in a list"""
         returnList = []
         for planet in self.planets:
             returnList.append(planet.description)
