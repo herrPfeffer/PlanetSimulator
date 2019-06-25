@@ -29,7 +29,7 @@ class PlanetCreator(object):
         """Get all xPositions of planets in a list"""
         returnList = []
         for planet in self.planets:
-            planet.xPosition = 0.4
+            planet.xPosition += 0.1;
             returnList.append(planet.xPosition)
         return returnList
 

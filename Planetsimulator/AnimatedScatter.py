@@ -23,13 +23,10 @@ class AnimatedScatter(object):
 
     def setupValues(self):
         """Setup the values"""
-        for planet in self.creator.planets:
-            self.scat = self.ax.scatter(x=planet.xPosition, y=planet.yPosition, label=planet.description, alpha=0.5)
-        self.ax.legend(loc=self.legend)
+        self.scat = self.ax.scatter(x=self.creator.getXPositions(), y=self.creator.getYPositions(), alpha=0.5)
         return self.scat,
 
     def update(self, *args):
         """Update the scatter plot."""
         self.scat.set_offsets(list(zip(self.creator.getXPositions(), self.creator.getYPositions())))
-        self.ax.legend(loc=self.legend)
         return self.scat,
