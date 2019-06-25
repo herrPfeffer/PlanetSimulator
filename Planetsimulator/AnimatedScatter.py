@@ -1,6 +1,7 @@
 from PlanetManager import PlanetManager
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
+import numpy as np
 
 class AnimatedScatter(object):
     """An animated scatter plot using matplotlib.animations.FuncAnimation."""
@@ -12,7 +13,7 @@ class AnimatedScatter(object):
         self.fig, self.ax = plt.subplots()
         self.ani = animation.FuncAnimation(self.fig, self.update, 
                                            frames=self.manager.timesteps, 
-                                           init_func=self.setupValues)
+                                           init_func=self.setupValues, repeat=False)
         self.initPlotter(title, xLabel, yLabel)
 
     def initPlotter(self, title:str, xLabel:str, yLabel:str):
@@ -25,8 +26,8 @@ class AnimatedScatter(object):
 
     def setupValues(self):
         """Setup the Scatter"""
-        self.ax.set_xlim(xmax=self.manager.determineMaxXPosition())
-        self.ax.set_ylim(ymax=self.manager.determineMaxYPosition())
+        self.ax.set_xlim(right=self.manager.determineMaxXPosition())
+        self.ax.set_ylim(top=self.manager.determineMaxYPosition())
         self.scats.clear()
         for planet in self.manager.planets:
             self.scats.append(self.ax.scatter(x=[], y=[], label=planet.description, alpha=0.5))

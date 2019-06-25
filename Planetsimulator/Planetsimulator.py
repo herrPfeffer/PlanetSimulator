@@ -1,7 +1,7 @@
 from PlanetManager import PlanetManager
 from AnimatedScatter import AnimatedScatter
 
-#create Creator instance
+#create Manager instance
 manager = PlanetManager(100)
 
 #initialize variable number of planets
