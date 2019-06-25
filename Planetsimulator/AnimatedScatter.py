@@ -24,12 +24,11 @@ class AnimatedScatter(object):
         plt.show()
 
     def setupValues(self):
-        """Setup the values"""
+        """Setup the scatter"""
         self.ax.set_xlim(xmax=self.creator.determineMaxXPosition())
         self.ax.set_ylim(ymax=self.creator.determineMaxYPosition())
         for planet in self.creator.planets:
-            scat = self.ax.scatter(x=[], y=[], label=planet.description, alpha=0.5)
-            self.scats.append(scat)
+            self.scats.append(self.ax.scatter(x=[], y=[], label=planet.description, alpha=0.5))
         self.ax.legend(loc=self.legend)
         return self.scats,
 
