@@ -1,7 +1,6 @@
 from PlanetManager import PlanetManager
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-import numpy as np
 
 class AnimatedScatter(object):
     """An animated scatter plot using matplotlib.animations.FuncAnimation."""
