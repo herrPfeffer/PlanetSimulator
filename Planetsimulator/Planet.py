@@ -1,4 +1,4 @@
-class Planet(object):
+class Planet():
     """Represents a planet"""
     
     def __init__(self, description:str, xPosition:float, yPosition:float, speed:float, mass:float):
@@ -8,7 +8,6 @@ class Planet(object):
         self.yPosition = yPosition
         self.speed = speed
         self.mass = mass
-        return super().__init_subclass__()
 
     #attributes of a planet
     description = ""
@@ -16,3 +15,4 @@ class Planet(object):
     yPosition = 0
     speed = 0
     mass = 0
+

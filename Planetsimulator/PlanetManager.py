@@ -6,7 +6,6 @@ class PlanetManager(object):
     def __init__(self, timesteps:int = 100):
         """Basic Constructor"""
         self.timesteps = timesteps
-        return super().__init_subclass__()
 
     #holds all planets in a list
     planets = []

@@ -14,7 +14,6 @@ class AnimatedScatter(object):
                                            frames=self.manager.timesteps, 
                                            init_func=self.setupValues)
         self.initPlotter(title, xLabel, yLabel)
-        return super().__init_subclass__()
 
     def initPlotter(self, title:str, xLabel:str, yLabel:str):
         """Intit the basic plotter and show it"""
