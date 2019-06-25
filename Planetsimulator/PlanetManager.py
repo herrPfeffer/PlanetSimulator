@@ -3,12 +3,14 @@ from Planet import Planet
 class PlanetManager(object):
     """Creates and manages Planets and their interference"""
     
-    def __init__(self):
+    def __init__(self, timesteps:int = 100):
         """Basic Constructor"""
+        self.timesteps = timesteps
         return super().__init_subclass__()
 
     #holds all planets in a list
-    planets = [] 
+    planets = []
+    timesteps = 100
 
     def CreatePlanet(self, description: str, xPosition:float, yPosition:float, speed: float, mass: float):
         """Creates a planet and append it to the planet list"""

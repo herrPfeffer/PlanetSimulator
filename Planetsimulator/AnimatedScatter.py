@@ -10,7 +10,7 @@ class AnimatedScatter(object):
         self.legend = legend
         self.creator = creator
         self.fig, self.ax = plt.subplots()
-        self.ani = animation.FuncAnimation(self.fig, self.update, frames=100, init_func=self.setupValues)
+        self.ani = animation.FuncAnimation(self.fig, self.update, frames=self.creator.timesteps, init_func=self.setupValues)
         self.initPlotter(title, xLabel, yLabel)
         return super().__init_subclass__()
 
