@@ -1,8 +1,8 @@
-from PlanetCreator import PlanetCreator
+from PlanetManager import PlanetManager
 from AnimatedScatter import AnimatedScatter
 
 #create Creator instance
-creator = PlanetCreator()
+creator = PlanetManager()
 
 #initialize variable number of planets
 creator.CreatePlanet(description='planet1', xPosition=0, yPosition=1, mass=150, speed=1)

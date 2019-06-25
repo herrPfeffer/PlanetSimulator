@@ -1,6 +1,6 @@
 from Planet import Planet
 
-class PlanetCreator(object):
+class PlanetManager(object):
     """Creates and manages Planets and their interference"""
     
     def __init__(self):

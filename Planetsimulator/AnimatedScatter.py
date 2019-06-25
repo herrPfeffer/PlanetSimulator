@@ -1,4 +1,4 @@
-from PlanetCreator import PlanetCreator
+from PlanetManager import PlanetManager
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
@@ -6,7 +6,7 @@ import numpy as np
 class AnimatedScatter(object):
     """An animated scatter plot using matplotlib.animations.FuncAnimation."""
     scats = []
-    def __init__(self, title:str, xLabel:str, yLabel:str, legend:int, creator:PlanetCreator):
+    def __init__(self, title:str, xLabel:str, yLabel:str, legend:int, creator:PlanetManager):
         """Basic Constructor"""
         self.legend = legend
         self.creator = creator

@@ -27,7 +27,7 @@
     <Compile Include="Planet.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="PlanetCreator.py">
+    <Compile Include="PlanetManager.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Planetsimulator.py" />
