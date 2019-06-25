@@ -28,6 +28,9 @@ class AnimatedScatter(object):
 
     def update(self, *args):
         """Update the scatter plot."""
+        #hier muss ggf. eine andere berechnung für die Limits stattfinden
+        #das kann ggf. auch in die setupValues methode gemacht werden wenn dort schon ermittelt werden kann
+        #was der höchst-mögliche wert ist.
         xPositions = self.creator.getXPositions()
         yPositions = self.creator.getYPositions()
         self.ax.set_xlim(xmax=max(xPositions) + 0.1)
