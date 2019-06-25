@@ -12,7 +12,7 @@ class AnimatedScatter(object):
         self.manager = manager
         self.fig, self.ax = plt.subplots()
         self.ani = animation.FuncAnimation(self.fig, self.update, 
-                                           frames=self.manager.timesteps, 
+                                           interval=self.manager.timesteps, 
                                            init_func=self.setupValues, repeat=False)
         self.initPlotter(title, xLabel, yLabel)
 

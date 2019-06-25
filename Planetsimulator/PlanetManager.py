@@ -9,13 +9,14 @@ class PlanetManager(object):
 
     #holds all planets in a list
     planets = []
+    #timesteps = delta t
     timesteps = 100
 
-    def CreatePlanet(self, description: str, xPosition:float, yPosition:float, speed: float, mass: float):
+    def CreatePlanet(self, description: str, xPosition:float, yPosition:float, x_speed: float, y_speed:float, mass: float):
         """Creates a planet and append it to the planet list"""
         if self.ValidatePosition(xPosition, yPosition) == False:
             raise ValueError("There is already a planet in this position!")
-        newPlanet = Planet(description, xPosition, yPosition, speed, mass)
+        newPlanet = Planet(description, xPosition, yPosition, x_speed, y_speed, mass)
         self.planets.append(newPlanet)
         return newPlanet
 
@@ -30,7 +31,7 @@ class PlanetManager(object):
         """Get all xPositions of planets in a list"""
         returnList = []
         for planet in self.planets:
-            planet.xPosition += 1; #JUST FOR TESTING
+            planet.xPosition += 0.1; #JUST FOR TESTING
             returnList.append(planet.xPosition)
         return returnList
 
@@ -57,3 +58,5 @@ class PlanetManager(object):
         """determines the max y-Value"""
         #TODO
         return 5
+
+    
