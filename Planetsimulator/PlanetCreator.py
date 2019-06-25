@@ -46,3 +46,13 @@ class PlanetCreator(object):
         for planet in self.planets:
             returnList.append(planet.description)
         return returnList
+
+    def determineMaxXPosition(self):
+        """determines the max x-Value"""
+        #TODO
+        return 5
+
+    def determineMaxYPosition(self):
+        """determines the max y-Value"""
+        #TODO
+        return 5

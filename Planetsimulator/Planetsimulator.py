@@ -1,8 +1,5 @@
 from PlanetCreator import PlanetCreator
 from AnimatedScatter import AnimatedScatter
-import matplotlib as mlp
-import matplotlib.pyplot as plt
-import numpy as np
 
 #create Creator instance
 creator = PlanetCreator()

@@ -23,17 +23,12 @@ class AnimatedScatter(object):
 
     def setupValues(self):
         """Setup the values"""
-        self.scat = self.ax.scatter(x=self.creator.getXPositions(), y=self.creator.getYPositions(), alpha=0.5)
+        self.ax.set_xlim(xmax=self.creator.determineMaxXPosition())
+        self.ax.set_ylim(ymax=self.creator.determineMaxYPosition())
+        self.scat = self.ax.scatter(x=self.creator.getXPositions(), y=self.creator.getYPositions(), alpha=0.5)        
         return self.scat,
 
     def update(self, *args):
         """Update the scatter plot."""
-        #hier muss ggf. eine andere berechnung für die Limits stattfinden
-        #das kann ggf. auch in die setupValues methode gemacht werden wenn dort schon ermittelt werden kann
-        #was der höchst-mögliche wert ist.
-        xPositions = self.creator.getXPositions()
-        yPositions = self.creator.getYPositions()
-        self.ax.set_xlim(xmax=max(xPositions) + 0.1)
-        self.ax.set_ylim(ymax=max(yPositions) + 0.1)
-        self.scat.set_offsets(list(zip(xPositions, yPositions)))
+        self.scat.set_offsets(list(zip(self.creator.getXPositions(), self.creator.getYPositions())))
         return self.scat,
