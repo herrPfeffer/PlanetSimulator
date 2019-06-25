@@ -5,12 +5,15 @@ import matplotlib.animation as animation
 class AnimatedScatter(object):
     """An animated scatter plot using matplotlib.animations.FuncAnimation."""
     scats = []
-    def __init__(self, title:str, xLabel:str, yLabel:str, legend:int, creator:PlanetManager):
+    def __init__(self, title:str, xLabel:str, yLabel:str, legend:int, manager:PlanetManager):
         """Basic Constructor"""
         self.legend = legend
-        self.creator = creator
+        self.manager = manager
         self.fig, self.ax = plt.subplots()
-        self.ani = animation.FuncAnimation(self.fig, self.update, frames=self.creator.timesteps, init_func=self.setupValues)
+        self.ani = animation.FuncAnimation(self.fig, self.update, 
+                                           frames=self.manager.timesteps, 
+                                           init_func=self.setupValues,
+                                           interval=1000)
         self.initPlotter(title, xLabel, yLabel)
         return super().__init_subclass__()
 
@@ -24,9 +27,10 @@ class AnimatedScatter(object):
 
     def setupValues(self):
         """Setup the scatter"""
-        self.ax.set_xlim(xmax=self.creator.determineMaxXPosition())
-        self.ax.set_ylim(ymax=self.creator.determineMaxYPosition())
-        for planet in self.creator.planets:
+        self.ax.set_xlim(xmax=self.manager.determineMaxXPosition())
+        self.ax.set_ylim(ymax=self.manager.determineMaxYPosition())
+        self.scats.clear()
+        for planet in self.manager.planets:
             self.scats.append(self.ax.scatter(x=[], y=[], label=planet.description, alpha=0.5))
         self.ax.legend(loc=self.legend)
         return self.scats,
@@ -34,8 +38,8 @@ class AnimatedScatter(object):
     def update(self, *args):
         """Update scatter values with the creator xPositions, yPositions methods"""
         counter = 0
-        xPositions = self.creator.getXPositions()
-        yPositions = self.creator.getYPositions()
+        xPositions = self.manager.getXPositions()
+        yPositions = self.manager.getYPositions()
         for scat in self.scats:
             scat.set_offsets(list(zip([xPositions[counter]], [yPositions[counter]])))
             counter += 1

@@ -16,5 +16,3 @@ class Planet(object):
     yPosition = 0
     speed = 0
     mass = 0
-
-    def move():
