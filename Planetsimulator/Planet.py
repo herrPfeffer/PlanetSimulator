@@ -14,6 +14,7 @@ class Planet():
     gravity_constant = 6.67430*10**(-11)
 
     def calculate_speed(self, planets:list, timesteps:int):
+        """the calculation of the speed for the new timestep"""
         for planet in planets:
             if planet==self:
                 next()
