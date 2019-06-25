@@ -25,7 +25,7 @@ class AnimatedScatter(object):
         plt.show()
 
     def setupValues(self):
-        """Setup the scatter"""
+        """Setup the Scatter"""
         self.ax.set_xlim(xmax=self.manager.determineMaxXPosition())
         self.ax.set_ylim(ymax=self.manager.determineMaxYPosition())
         self.scats.clear()
