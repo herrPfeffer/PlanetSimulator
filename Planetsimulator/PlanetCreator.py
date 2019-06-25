@@ -25,3 +25,21 @@ class PlanetCreator(object):
             if ((xPosition == planet.xPosition) and (yPosition == planet.yPosition)):
                 return False
         return True
+
+    def getXPositions(self) -> list:
+        returnList = []
+        for planet in self.planets:
+            returnList.append(planet.xPosition)
+        return returnList
+
+    def getYPositions(self) -> list:
+        returnList = []
+        for planet in self.planets:
+            returnList.append(planet.yPosition)
+        return returnList
+
+    def getDescriptions(self) -> list:
+        returnList = []
+        for planet in self.planets:
+            returnList.append(planet.description)
+        return returnList

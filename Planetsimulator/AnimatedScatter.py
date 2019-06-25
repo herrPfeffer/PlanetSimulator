@@ -1,32 +1,28 @@
+from PlanetCreator import PlanetCreator
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
 import numpy as np
 
 class AnimatedScatter(object):
     """An animated scatter plot using matplotlib.animations.FuncAnimation."""
-
-    def __init__(self, title:str, xLabel:str, yLabel:str, legend:int, planets:list):
-        """Basic Constructor"""        
-        self.fig, self.ax = plt.subplots()
-        self.planets = planets
-        self.ani = animation.FuncAnimation(self.fig, self.update, interval=5, init_func=self.setupValues, blit=True)
+    def __init__(self, title:str, xLabel:str, yLabel:str, legend:int, creator:PlanetCreator):
+        """Basic Constructor"""
+        self.creator = creator
+        self.fig, self.ax = plt.subplots()      
+        self.ani = animation.FuncAnimation(self.fig, self.update, frames=100, init_func=self.setupValues)
         self.initPlotter(title, xLabel, yLabel, legend)
-        plt.show()
         return super().__init_subclass__()
 
-    def initPlotter(self, title:str, xLabel:str, yLabel:str, legend:int):        
+    def initPlotter(self, title:str, xLabel:str, yLabel:str, legend:int):
         plt.title(title)
         plt.xlabel(xLabel)
         plt.ylabel(yLabel)
         plt.legend(loc=legend)
+        plt.show()
 
     def setupValues(self):
         """Setup the values"""
-        for planet in self.planets:
-            self.scat = self.ax.scatter(x=planet.xPosition, y=planet.yPosition, alpha=0.5, label=planet.description)
-        return self.scat
+        self.ax.scatter(self.creator.getXPositions(), self.creator.getYPositions(), label=self.creator.getDescriptions())
 
-    def update(self):
+    def update(self, *args):
         """Update the scatter plot."""
-        self.scat.set_offsets(x=planet.xPosition, y=planet.yPosition)
-        return self.scat
