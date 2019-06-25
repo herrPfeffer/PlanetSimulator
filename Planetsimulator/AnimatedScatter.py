@@ -28,5 +28,9 @@ class AnimatedScatter(object):
 
     def update(self, *args):
         """Update the scatter plot."""
-        self.scat.set_offsets(list(zip(self.creator.getXPositions(), self.creator.getYPositions())))
+        xPositions = self.creator.getXPositions()
+        yPositions = self.creator.getYPositions()
+        self.ax.set_xlim(xmax=max(xPositions) + 0.1)
+        self.ax.set_ylim(ymax=max(yPositions) + 0.1)
+        self.scat.set_offsets(list(zip(xPositions, yPositions)))
         return self.scat,
