@@ -22,7 +22,8 @@ class AnimatedScatter(object):
 
     def setupValues(self):
         """Setup the values"""
-        self.ax.scatter(self.creator.getXPositions(), self.creator.getYPositions(), label=self.creator.getDescriptions())
+        self.scat = self.ax.scatter(self.creator.getXPositions(), self.creator.getYPositions(), label=self.creator.getDescriptions())
 
     def update(self, *args):
-        """Update the scatter plot."""
+        """Update the scatter plot."""        
+        self.scat.set_offsets(list(zip(self.creator.getXPositions(), self.creator.getYPositions())))
