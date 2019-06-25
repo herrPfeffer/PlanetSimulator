@@ -33,7 +33,7 @@ class AnimatedScatter(object):
         return self.scats,
 
     def update(self, *args):
-        """Update the scatter plot."""
+        """Update scatter values with the creator xPositions, yPositions methods"""
         counter = 0
         xPositions = self.creator.getXPositions()
         yPositions = self.creator.getYPositions()
