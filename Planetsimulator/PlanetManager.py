@@ -28,6 +28,7 @@ class PlanetManager(object):
         return True
 
     def getPositions(self):
+        """returns a map with the x and y coordinates of the planets"""
         positionMap = {}
         xPositions = []
         yPositions = []
