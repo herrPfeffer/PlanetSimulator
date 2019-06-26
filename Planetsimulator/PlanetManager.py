@@ -3,7 +3,7 @@ from Planet import Planet
 class PlanetManager(object):
     """Creates and manages Planets and their interference"""
     
-    def __init__(self, timesteps:int = 100):
+    def __init__(self, timesteps:int=100):
         """Basic Constructor"""
         self.timesteps = timesteps
 
