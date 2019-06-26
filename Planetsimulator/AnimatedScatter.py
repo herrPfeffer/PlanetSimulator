@@ -37,8 +37,9 @@ class AnimatedScatter(object):
     def update(self, *args):
         """Update scatter values with the creator xPositions, yPositions methods"""
         counter = 0
-        xPositions = self.manager.getXPositions()
-        yPositions = self.manager.getYPositions()
+        positionsMap = self.manager.getPositions()
+        xPositions = positionsMap["xCoordinate"]
+        yPositions = positionsMap["yCoordinate"]
         for scat in self.scats:
             scat.set_offsets(list(zip([xPositions[counter]], [yPositions[counter]])))
             counter += 1

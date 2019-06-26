@@ -12,7 +12,7 @@ class PlanetManager(object):
     #timesteps = delta t
     timesteps = 100
 
-    def CreatePlanet(self, description: str, xPosition:float, yPosition:float, x_speed: float, y_speed:float, mass: float):
+    def CreatePlanet(self, description: str, xPosition:float, yPosition:float, x_speed:float, y_speed:float, mass: float):
         """Creates a planet and append it to the planet list"""
         if self.ValidatePosition(xPosition, yPosition) == False:
             raise ValueError("There is already a planet in this position!")
@@ -27,36 +27,26 @@ class PlanetManager(object):
                 return False
         return True
 
-    def getXPositions(self):
-        """Get all xPositions of planets in a list"""
-        returnList = []
+    def getPositions(self):
+        positionMap = {}
+        xPositions = []
+        yPositions = []
         for planet in self.planets:
-            planet.xPosition += 0.1; #JUST FOR TESTING
-            returnList.append(planet.xPosition)
-        return returnList
-
-    def getYPositions(self):
-        """Get all YPositions of planets in a list"""
-        returnList = []
-        for planet in self.planets:
-            returnList.append(planet.yPosition)
-        return returnList
-
-    def getDescriptions(self):
-        """Get all descriptions of planets in a list"""
-        returnList = []
-        for planet in self.planets:
-            returnList.append(planet.description)
-        return returnList
+            planet.move_next(self.planets, self.timesteps)
+            xPositions.append(planet.xPosition)
+            yPositions.append(planet.yPosition)
+        positionMap["xCoordinate"] = xPositions
+        positionMap["yCoordinate"] = yPositions
+        return positionMap
 
     def determineMaxXPosition(self):
         """determines the max x-Value"""
         #TODO
-        return 5
+        return 10
 
     def determineMaxYPosition(self):
         """determines the max y-Value"""
         #TODO
-        return 5
+        return 10
 
     
