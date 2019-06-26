@@ -13,10 +13,10 @@ class AnimatedScatter(object):
         self.fig, self.ax = plt.subplots()
         self.ani = animation.FuncAnimation(self.fig, self.update, 
                                            interval=self.manager.timesteps, 
-                                           init_func=self.setupValues, repeat=False)
-        self.initPlotter(title, xLabel, yLabel)
+                                           init_func=self.setup_values, repeat=False)
+        self.init_plotter(title, xLabel, yLabel)
 
-    def initPlotter(self, title:str, xLabel:str, yLabel:str):
+    def init_plotter(self, title:str, xLabel:str, yLabel:str):
         """Intit the basic plotter and show it"""
         plt.title(title)
         self.fig.canvas.set_window_title(title)
@@ -24,10 +24,10 @@ class AnimatedScatter(object):
         plt.ylabel(yLabel)
         plt.show()
 
-    def setupValues(self):
+    def setup_values(self):
         """Setup the Scatter"""
-        self.ax.set_xlim(right=self.manager.determineMaxXPosition())
-        self.ax.set_ylim(top=self.manager.determineMaxYPosition())
+        self.ax.set_xlim(right=self.manager.determine_max_x_position())
+        self.ax.set_ylim(top=self.manager.determine_max_y_position())
         self.scats.clear()
         for planet in self.manager.planets:
             self.scats.append(self.ax.scatter(x=[], y=[], label=planet.description, alpha=0.5))
@@ -37,7 +37,7 @@ class AnimatedScatter(object):
     def update(self, *args):
         """Update scatter values with the creator xPositions, yPositions methods"""
         counter = 0
-        positionsMap = self.manager.getPositions()
+        positionsMap = self.manager.get_positions()
         xPositions = positionsMap["xCoordinate"]
         yPositions = positionsMap["yCoordinate"]
         for scat in self.scats:
