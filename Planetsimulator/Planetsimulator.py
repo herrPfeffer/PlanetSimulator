@@ -11,4 +11,4 @@ manager.create_planet(description='planet3', xPosition=2, yPosition=3, mass=10, 
 manager.create_planet(description='planet4', xPosition=1, yPosition=4, mass=10, x_speed=0.01, y_speed=0.01)
 
 #Show Planets in Plotter
-scatter = AnimatedScatter("Planetsimulator", "x-Axis", "y-Axis", 2, manager)
+scatter = AnimatedScatter(title="Planetsimulator", x_label="x-Axis", y_label="y-Axis", legend=2, manager=manager)

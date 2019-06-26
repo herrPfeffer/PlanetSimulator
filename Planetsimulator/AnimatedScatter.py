@@ -6,7 +6,7 @@ import numpy as np
 class AnimatedScatter(object):
     """An animated scatter plot using matplotlib.animations.FuncAnimation."""
     scats = []
-    def __init__(self, title:str, xLabel:str, yLabel:str, legend:int, manager:PlanetManager):
+    def __init__(self, title:str, x_label:str, y_label:str, legend:int, manager:PlanetManager):
         """Basic Constructor"""
         self.legend = legend
         self.manager = manager
@@ -14,7 +14,7 @@ class AnimatedScatter(object):
         self.ani = animation.FuncAnimation(self.fig, self.update, 
                                            interval=self.manager.timesteps, 
                                            init_func=self.setup_values, repeat=False)
-        self.init_plotter(title, xLabel, yLabel)
+        self.init_plotter(title, x_label, y_label)
 
     def init_plotter(self, title:str, xLabel:str, yLabel:str):
         """Intit the basic plotter and show it"""
