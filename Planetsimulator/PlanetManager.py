@@ -49,5 +49,3 @@ class PlanetManager(object):
         """determines the max y-Value"""
         #TODO
         return 10
-
-    
