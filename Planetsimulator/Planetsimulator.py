@@ -10,7 +10,7 @@ manager.create_planet(description='planet2', xPosition=4, yPosition=2, mass=10, 
 manager.create_planet(description='planet3', xPosition=2, yPosition=3, mass=10, x_speed=0.01, y_speed=0.01)
 manager.create_planet(description='planet4', xPosition=1, yPosition=4, mass=10, x_speed=0.01, y_speed=0.01)
 
-manager.create_star(description="star1", xPosition=2.5, yPosition=2.5, mass=10)
+manager.create_star(description="star1", xPosition=2.5, yPosition=2.5, mass=1000)
 
 #Show Planets in Plotter
 scatter = AnimatedScatter(title="Planetsimulator", x_label="x-Axis", y_label="y-Axis", legend=2, manager=manager)
