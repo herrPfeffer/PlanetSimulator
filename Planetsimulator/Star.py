@@ -1,4 +1,6 @@
-class Star():
+from Planet import Planet
+
+class Star(Planet):
     """Represents a star"""
     
     def __init__(self, description:str, x_position:float, y_position:float, mass:float):
@@ -7,3 +9,6 @@ class Star():
         self.x_position = x_position
         self.y_position = y_position
         self.mass = mass
+
+    def move_next(self, planets:list, timesteps:int):
+        return

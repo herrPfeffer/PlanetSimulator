@@ -1,4 +1,5 @@
 from Planet import Planet
+from Star import Star
 
 class PlanetManager(object):
     """Creates and manages Planets and their interference"""
@@ -8,7 +9,7 @@ class PlanetManager(object):
         self.timesteps = timesteps
 
     #holds all planets in a list
-    planets = []
+    planetary_objects = []
     #timesteps = delta t
     timesteps = 100
 
@@ -17,12 +18,20 @@ class PlanetManager(object):
         if self.validate_position(xPosition, yPosition) == False:
             raise ValueError("There is already a planet in this position!")
         newPlanet = Planet(description, xPosition, yPosition, x_speed, y_speed, mass)
-        self.planets.append(newPlanet)
+        self.planetary_objects.append(newPlanet)
         return newPlanet
+
+    def create_star(self, description:str, xPosition:float, yPosition:float, mass:float):
+        if self.validate_position(xPosition, yPosition) == False:
+            raise ValueError("There is already a planetary object in this position")
+        new_star = Star(description, xPosition, yPosition, mass)
+        self.planetary_objects.append(new_star)
+        return new_star
+
 
     def validate_position(self, xPosition:float, yPosition:float):
         """validates if the position of the planet can be used"""
-        for planet in self.planets:
+        for planet in self.planetary_objects:
             if ((xPosition == planet.x_position) and (yPosition == planet.y_position)):
                 return False
         return True
@@ -32,8 +41,8 @@ class PlanetManager(object):
         positionMap = {}
         xPositions = []
         yPositions = []
-        for planet in self.planets:
-            planet.move_next(self.planets, self.timesteps)
+        for planet in self.planetary_objects:
+            planet.move_next(self.planetary_objects, self.timesteps)
             xPositions.append(planet.x_position)
             yPositions.append(planet.y_position)
         positionMap["xCoordinate"] = xPositions

@@ -29,7 +29,7 @@ class AnimatedScatter(object):
         self.ax.set_xlim(right=self.manager.determine_max_x_position())
         self.ax.set_ylim(top=self.manager.determine_max_y_position())
         self.scats.clear()
-        for planet in self.manager.planets:
+        for planet in self.manager.planetary_objects:
             self.scats.append(self.ax.scatter(x=[], y=[], label=planet.description, alpha=0.5))
         self.ax.legend(loc=self.legend)
         return self.scats,
