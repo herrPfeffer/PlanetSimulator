@@ -22,8 +22,10 @@ class Planet():
         """the calculation of the speed for the new timestep"""
         for planet in planets:
             if planet != self:
-                self.x_speed += timesteps * (self.gravity_constant * planet.mass / (math.fabs(planet.x_position - self.x_position)) ** 3 * (planet.x_position - self.x_position))
-                self.y_speed += timesteps * (self.gravity_constant * planet.mass / (math.fabs(planet.y_position - self.y_position)) ** 3 * (planet.y_position - self.y_position))                
+                self.x_speed += timesteps * (self.gravity_constant * planet.mass / 
+                                             (math.fabs(planet.x_position - self.x_position)) ** 3 * (planet.x_position - self.x_position))
+                self.y_speed += timesteps * (self.gravity_constant * planet.mass / 
+                                             (math.fabs(planet.y_position - self.y_position)) ** 3 * (planet.y_position - self.y_position))                
 
     def calculate_position(self, timesteps:int):
         """calculates the current position with the current speed"""

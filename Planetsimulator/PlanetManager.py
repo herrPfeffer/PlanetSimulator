@@ -2,7 +2,7 @@ from Planet import Planet
 from Star import Star
 
 class PlanetManager(object):
-    """Creates and manages Planets and their interference"""
+    """Creates and manages planets and their interference"""
     
     def __init__(self, timesteps:int=100):
         """Basic Constructor"""
@@ -14,7 +14,7 @@ class PlanetManager(object):
     timesteps = 100
 
     def create_planet(self, description: str, xPosition:float, yPosition:float, x_speed:float, y_speed:float, mass: float):
-        """Creates a planet and append it to the planet list"""
+        """Creates a planet and appends it to the planet list"""
         if self.validate_position(xPosition, yPosition) == False:
             raise ValueError("There is already a planet in this position!")
         newPlanet = Planet(description, xPosition, yPosition, x_speed, y_speed, mass)
@@ -23,7 +23,7 @@ class PlanetManager(object):
 
     def create_star(self, description:str, xPosition:float, yPosition:float, mass:float):
         if self.validate_position(xPosition, yPosition) == False:
-            raise ValueError("There is already a planetary object in this position")
+            raise ValueError("There is already a planetary object in this position.")
         new_star = Star(description, xPosition, yPosition, mass)
         self.planetary_objects.append(new_star)
         return new_star
