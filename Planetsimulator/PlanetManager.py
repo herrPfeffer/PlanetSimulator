@@ -4,14 +4,14 @@ from Star import Star
 class PlanetManager(object):
     """Creates and manages planets and their interference"""
     
-    def __init__(self, timesteps:int=100):
+    def __init__(self, timesteps:int=10**10):
         """Basic Constructor"""
         self.timesteps = timesteps
 
     #holds all planets in a list
     planetary_objects = []
     #timesteps = delta t
-    timesteps = 100
+    timesteps = 10**10
 
     def create_planet(self, description: str, xPosition:float, yPosition:float, x_speed:float, y_speed:float, mass: float):
         """Creates a planet and appends it to the planet list"""
@@ -52,9 +52,9 @@ class PlanetManager(object):
     def determine_max_x_position(self):
         """determines the max x-Value"""
         #TODO
-        return 10
+        return 2*7.377*10**12
 
     def determine_max_y_position(self):
         """determines the max y-Value"""
         #TODO
-        return 10
+        return 2*7.377*10**12
