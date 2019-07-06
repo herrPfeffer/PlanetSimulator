@@ -35,15 +35,18 @@ class Planet():
 #            self.x_speed+=(1/timesteps)*x_sum
 #            self.y_speed+=(1/timesteps)*y_sum
 
+
+#something wrong with y_speed or y_position: they only move in x_direction
+#maybe the values are too high or too low because they move very slowly
     def calculate_speed(self, planetary_objects:list, timesteps:int):
         x_sum=0
         y_sum=0
         for planet in planetary_objects:
             if planet != self:
-                x_sum+=(self.gravity_constant*planet.mass)/(math.sqrt((planet.x_position-self.x_position)**2+(planet.y_position-self.y_position)**2)**3)*(planet.x_position-self.x_position)
-                y_sum+=(self.gravity_constant*planet.mass)/(math.sqrt((planet.x_position-self.x_position)**2+(planet.y_position-self.y_position)**2)**3)*(planet.y_position-self.y_position)
-        self.x_speed+=(1/timesteps)*x_sum           
-        self.y_speed+=(1/timesteps)*y_sum
+                x_sum+=((self.gravity_constant*planet.mass)/(math.sqrt((planet.x_position-self.x_position)**2+(planet.y_position-self.y_position)**2)**3))*(planet.x_position-self.x_position)
+                y_sum+=((self.gravity_constant*planet.mass)/(math.sqrt((planet.x_position-self.x_position)**2+(planet.y_position-self.y_position)**2)**3))*(planet.y_position-self.y_position)
+        self.x_speed+=1/(timesteps)*x_sum           
+        self.y_speed+=1/(timesteps)*y_sum
 
     def calculate_position(self, timesteps:int):
         """calculates the current position with the current speed"""

@@ -21,4 +21,3 @@ manager.create_star(description="sun", xPosition=7.376*10**12, yPosition=7.376*1
 
 #Show Planets in Plotter
 scatter = AnimatedScatter(title="Planetsimulator", x_label="x-Axis", y_label="y-Axis", legend=2, manager=manager)
-

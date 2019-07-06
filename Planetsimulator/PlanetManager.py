@@ -4,14 +4,14 @@ from Star import Star
 class PlanetManager(object):
     """Creates and manages planets and their interference"""
     
-    def __init__(self, timesteps:int=10**10):
+    def __init__(self, timesteps:int=10**20):
         """Basic Constructor"""
         self.timesteps = timesteps
 
     #holds all planets in a list
     planetary_objects = []
     #timesteps = delta t
-    timesteps = 10**10
+    timesteps = 10**20
 
     def create_planet(self, description: str, xPosition:float, yPosition:float, x_speed:float, y_speed:float, mass: float):
         """Creates a planet and appends it to the planet list"""
