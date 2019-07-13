@@ -13,41 +13,41 @@ class PlanetManager(object):
     #timesteps = delta t
     timesteps = 10**10
 
-    def create_planet(self, description: str, xPosition:float, yPosition:float, x_speed:float, y_speed:float, mass: float):
+    def create_planet(self, description: str, x_position:float, y_position:float, x_speed:float, y_speed:float, mass: float):
         """Creates a planet and appends it to the list planetary_objects."""
-        if self.validate_position(xPosition, yPosition) == False:
+        if self.validate_position(x_position, y_position) == False:
             raise ValueError("There is already a planet in this position!")
-        newPlanet = Planet(description, xPosition, yPosition, x_speed, y_speed, mass)
-        self.planetary_objects.append(newPlanet)
-        return newPlanet
+        new_planet = Planet(description, x_position, y_position, x_speed, y_speed, mass)
+        self.planetary_objects.append(new_planet)
+        return new_planet
 
-    def create_star(self, description:str, xPosition:float, yPosition:float, mass:float):
+    def create_star(self, description:str, x_position:float, y_position:float, mass:float):
         """Creates a star and appends it to the list planetary_objects."""
-        if self.validate_position(xPosition, yPosition) == False:
+        if self.validate_position(x_position, y_position) == False:
             raise ValueError("There is already a planetary object in this position.")
-        new_star = Star(description, xPosition, yPosition, mass)
+        new_star = Star(description, x_position, y_position, mass)
         self.planetary_objects.append(new_star)
         return new_star
 
 
-    def validate_position(self, xPosition:float, yPosition:float):
+    def validate_position(self, x_position:float, y_position:float):
         """Validates if the position of the planet can be used."""
         for planet in self.planetary_objects:
-            if ((xPosition == planet.x_position) and (yPosition == planet.y_position)):
+            if ((x_position == planet.x_position) and (y_position == planet.y_position)):
                 return False
         return True
 
     def get_positions(self):
         """Returns a map with the x and y coordinates of all planets."""
         positionMap = {}
-        xPositions = []
-        yPositions = []
+        x_positions = []
+        y_positions = []
         for planet in self.planetary_objects:
             planet.move_next(self.planetary_objects, self.timesteps)
-            xPositions.append(planet.x_position)
-            yPositions.append(planet.y_position)
-        positionMap["xCoordinate"] = xPositions
-        positionMap["yCoordinate"] = yPositions
+            x_positions.append(planet.x_position)
+            y_positions.append(planet.y_position)
+        positionMap["xCoordinate"] = x_positions
+        positionMap["yCoordinate"] = y_positions
         return positionMap
 
     def determine_max_x_position(self):
