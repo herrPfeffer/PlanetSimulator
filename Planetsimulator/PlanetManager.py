@@ -39,16 +39,16 @@ class PlanetManager(object):
 
     def get_positions(self):
         """Returns a map with the x and y coordinates of all planets."""
-        positionMap = {}
+        position_map = {}
         x_positions = []
         y_positions = []
         for planet in self.planetary_objects:
             planet.move_next(self.planetary_objects, self.timesteps)
             x_positions.append(planet.x_position)
             y_positions.append(planet.y_position)
-        positionMap["xCoordinate"] = x_positions
-        positionMap["yCoordinate"] = y_positions
-        return positionMap
+        position_map["x_coordinate"] = x_positions
+        position_map["y_coordinate"] = y_positions
+        return position_map
 
     def determine_max_x_position(self):
         """determines the max x-Value"""
