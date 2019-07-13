@@ -12,12 +12,12 @@ class AnimatedScatter(object):
         self.manager = manager
         self.fig, self.ax = plt.subplots()
         self.ani = animation.FuncAnimation(self.fig, self.update, 
-                                           interval=self.manager.timesteps, 
+                                           interval=self.manager.timesteps, #interval = Zeit zwischen Frames in Millisekunden
                                            init_func=self.setup_values, repeat=False)
         self.init_plotter(title, x_label, y_label)
 
     def init_plotter(self, title:str, xLabel:str, yLabel:str):
-        """Intit the basic plotter and show it"""
+        """Initialises the basic plotter and shows it."""
         plt.title(title)
         self.fig.canvas.set_window_title(title)
         plt.xlabel(xLabel)
@@ -25,7 +25,7 @@ class AnimatedScatter(object):
         plt.show()
 
     def setup_values(self):
-        """Setup the Scatter"""
+        """Setup of the Scatter"""
         self.ax.set_xlim(right=self.manager.determine_max_x_position())
         self.ax.set_ylim(top=self.manager.determine_max_y_position())
         self.scats.clear()
@@ -35,7 +35,7 @@ class AnimatedScatter(object):
         return self.scats,
 
     def update(self, *args):
-        """Update scatter values with the creator xPositions, yPositions methods"""
+        """Updates the scatter values."""
         counter = 0
         positionsMap = self.manager.get_positions()
         xPositions = positionsMap["xCoordinate"]

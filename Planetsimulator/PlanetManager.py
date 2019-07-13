@@ -11,10 +11,10 @@ class PlanetManager(object):
     #holds all planets in a list
     planetary_objects = []
     #timesteps = delta t
-    timesteps = 10**20
+    timesteps = 10**10
 
     def create_planet(self, description: str, xPosition:float, yPosition:float, x_speed:float, y_speed:float, mass: float):
-        """Creates a planet and appends it to the planet list"""
+        """Creates a planet and appends it to the list planetary_objects."""
         if self.validate_position(xPosition, yPosition) == False:
             raise ValueError("There is already a planet in this position!")
         newPlanet = Planet(description, xPosition, yPosition, x_speed, y_speed, mass)
@@ -22,6 +22,7 @@ class PlanetManager(object):
         return newPlanet
 
     def create_star(self, description:str, xPosition:float, yPosition:float, mass:float):
+        """Creates a star and appends it to the list planetary_objects."""
         if self.validate_position(xPosition, yPosition) == False:
             raise ValueError("There is already a planetary object in this position.")
         new_star = Star(description, xPosition, yPosition, mass)
@@ -30,14 +31,14 @@ class PlanetManager(object):
 
 
     def validate_position(self, xPosition:float, yPosition:float):
-        """validates if the position of the planet can be used"""
+        """Validates if the position of the planet can be used."""
         for planet in self.planetary_objects:
             if ((xPosition == planet.x_position) and (yPosition == planet.y_position)):
                 return False
         return True
 
     def get_positions(self):
-        """returns a map with the x and y coordinates of the planets"""
+        """Returns a map with the x and y coordinates of all planets."""
         positionMap = {}
         xPositions = []
         yPositions = []
@@ -51,10 +52,9 @@ class PlanetManager(object):
 
     def determine_max_x_position(self):
         """determines the max x-Value"""
-        #TODO
         return 2*7.377*10**12
-
+        
     def determine_max_y_position(self):
         """determines the max y-Value"""
-        #TODO
         return 2*7.377*10**12
+        
