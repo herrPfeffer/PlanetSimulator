@@ -9,7 +9,6 @@ class Star(Planet):
         self.description = description
         self.x_position = x_position
         self.y_position = y_position
-        self.position = np.array([x_position, y_position])
         self.mass = mass
 
     def move_next(self, planets:list, timesteps:int):
