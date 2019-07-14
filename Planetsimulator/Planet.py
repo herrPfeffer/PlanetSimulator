@@ -15,14 +15,15 @@ class Planet():
 
     #the gravity constant which determines how the planets are influenced by each other
     gravity_constant = 6.67430*10**(-11)
+    time = 10**5
     
-    def move_next(self, planets:list, timesteps:int):
+    def move_next(self, planets:list, time):
         """move to the next timestep"""
-        self.calculate_speed(planets, timesteps)
-        self.calculate_position(timesteps)
+        self.calculate_speed(planets, time)
+        self.calculate_position(time)
 
 
-    def calculate_speed(self, planetary_objects:list, timesteps:int):
+    def calculate_speed(self, planetary_objects:list, time:int):
         """calculation of the new speed for the next timestep"""
         x_sum=0
         y_sum=0
@@ -30,13 +31,14 @@ class Planet():
             if planet != self:
                 x_sum+=((self.gravity_constant*planet.mass)/(math.sqrt((planet.x_position-self.x_position)**2+(planet.y_position-self.y_position)**2)**3))*(planet.x_position-self.x_position)
                 y_sum+=((self.gravity_constant*planet.mass)/(math.sqrt((planet.x_position-self.x_position)**2+(planet.y_position-self.y_position)**2)**3))*(planet.y_position-self.y_position)
-        self.x_speed+=10**5*x_sum           
-        self.y_speed+=10**5*y_sum
+        self.x_speed+=self.time*x_sum           
+        self.y_speed+=self.time*y_sum
 
-    #timesteps have to be increased because in realtime, the planets circle around the sun within one year
-    def calculate_position(self, timesteps:int):
+    #time has to be increased because in realtime, the planets circle around the sun within one year
+    def calculate_position(self, time):
         """calculation of the current position with the current speed"""
         self.x_position += 10**5 * self.x_speed
         self.y_position += 10**5 * self.y_speed
+
 
  
