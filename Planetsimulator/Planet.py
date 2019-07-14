@@ -30,13 +30,13 @@ class Planet():
             if planet != self:
                 x_sum+=((self.gravity_constant*planet.mass)/(math.sqrt((planet.x_position-self.x_position)**2+(planet.y_position-self.y_position)**2)**3))*(planet.x_position-self.x_position)
                 y_sum+=((self.gravity_constant*planet.mass)/(math.sqrt((planet.x_position-self.x_position)**2+(planet.y_position-self.y_position)**2)**3))*(planet.y_position-self.y_position)
-        self.x_speed+=timesteps*10**5*x_sum           
-        self.y_speed+=timesteps*10**5*y_sum
+        self.x_speed+=10**5*x_sum           
+        self.y_speed+=10**5*y_sum
 
     #timesteps have to be increased because in realtime, the planets circle around the sun within one year
     def calculate_position(self, timesteps:int):
         """calculation of the current position with the current speed"""
-        self.x_position += timesteps * 10**5 * self.x_speed
-        self.y_position += timesteps * 10**5 * self.y_speed
+        self.x_position += 10**5 * self.x_speed
+        self.y_position += 10**5 * self.y_speed
 
  

@@ -11,7 +11,7 @@ class PlanetManager(object):
     #holds all planets in a list
     planetary_objects = []
     #timesteps = delta t
-    timesteps = 10**100
+    timesteps = 10**10
 
     def create_planet(self, description: str, x_position:float, y_position:float, x_speed:float, y_speed:float, mass: float):
         """Creates a planet and appends it to the list planetary_objects."""
