@@ -1,5 +1,4 @@
 import math
-import numpy as np
 
 class Planet():
     """Represents a planet"""
@@ -12,6 +11,7 @@ class Planet():
         self.x_speed = x_speed
         self.y_speed = y_speed
         self.mass = mass
+       
 
     #the gravity constant which determines how the planets are influenced by each other
     gravity_constant = 6.67430*10**(-11)
@@ -39,6 +39,5 @@ class Planet():
         """calculation of the current position with the current speed"""
         self.x_position += 10**5 * self.x_speed
         self.y_position += 10**5 * self.y_speed
-
 
  

@@ -1,5 +1,4 @@
 from Planet import Planet
-import numpy as np
 
 class Star(Planet):
     """Represents a star"""
