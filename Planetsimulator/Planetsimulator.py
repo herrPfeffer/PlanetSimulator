@@ -2,7 +2,7 @@ from PlanetManager import PlanetManager
 from AnimatedScatter import AnimatedScatter
 
 #creation of a Manager instance
-manager = PlanetManager(5)
+manager = PlanetManager(10)
 
 #initialising a variable number of planets
 #distance in m, masses in kg, speed in m/s
@@ -15,6 +15,7 @@ manager.create_planet(description='saturn', x_position=7.376*10**12, y_position=
 manager.create_planet(description='uranus', x_position=7.376*10**12, y_position=7.376*10**12-2.875*10**12, mass=8.681*10**25, x_speed=4815, y_speed=4815)
 manager.create_planet(description='neptune', x_position=7.376*10**12, y_position=7.376*10**12-4.50*10**12, mass=1.024*10**26, x_speed=3840, y_speed=3840)
 manager.create_planet(description='pluto', x_position=7.376*10**12, y_position=7.376*10**12-5.906*10**12, mass=1.303*10**22, x_speed=3302, y_speed=3302)
+
 
 #initialising stars
 manager.create_star(description="sun", x_position=7.376*10**12, y_position=7.376*10**12, mass=1.989*10**30)
